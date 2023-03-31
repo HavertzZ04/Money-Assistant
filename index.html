@@ -7,26 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
+    <script src="https://kit.fontawesome.com/5c7d18e86d.js" crossorigin="anonymous"></script>
     <title>Money</title>
 </head>
 <body>
     <section class="top position-relative">
         <div class="position-absolute top-50 start-50 translate-middle">
-            <h1 class="text-center">Budget Available</h1>
-            <div class="amount text-center" id="fullAmount">0</div>
+            <div class="groupTitle">
+                <h1 class="text-center">Available</h1>
+                <div class="amount text-center" id="fullAmount">0</div>
 
-            <div class="bg-info info-top">
-                <div class="row">
-                    <div class="col-6">Income</div>
-                    <div class="col-6" id="income">0</div>
+                <div class="bg-primary topIncome info-top">
+                    <div class="row">
+                        <div class="col-6">Income</div>
+                        <div class="col-6"  id="income">$ 0</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="bg-danger info-top">
-                <div class="row">
-                    <div class="col-6">Expenses</div>
-                    <div class="col-4" id="expenses">0</div>
-                    <div class="col-2">0</div>
+                
+                <div class="bg-danger topExpenses info-top">
+                    <div class="row">
+                        <div class="col-6">Expenses</div>
+                        <div class="col-3" id="expenses">$ 0</div>
+                        <div class="col-3" id="percentageMain">%0.0</div>
+                    </div>
                 </div>
             </div>
 
@@ -37,20 +40,21 @@
     <section class="middle alert-secondary">
         <div class="container">
             <div class="row">
-                <div class="col-1">
-                    <select class="form-select width-input" aria-label="Default select example" id="selectValue">
+                <div class="col-2">
+                    
+                    <select class="text-center form-select width-input" aria-label="Default select example" id="selectValue">
                         <option value="plus" id="plus">+</option>
                         <option value="less" id="less">-</option>
                     </select>
                 </div>
-                <div class="col-6">
-                    <input type="text" placeholder="Add a description" class="width-input" id="description">
+                <div class="col-5">
+                    <input required type="text" placeholder="Add a description" name="description" class="width-input text-center" id="description">
                 </div>
                 <div class="col-3">
-                    <input type="number" placeholder="$" class="width-input" id="price">
+                    <input required type="text" placeholder="$" name="price" class="width-input text-center" id="price">
                 </div>
                 <div class="col-2">
-                    <button name="send" class="width-input btn-success" id="send">Send</button>
+                    <button type="submit" name="send" class="width-input btn-dark text-center" id="send">Send</button>
                 </div>
             </div>
         </div>
@@ -61,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <table class="table">
+                    <table class="table" id="tableIncome">
                         <thead class="income">
                         <tr>
                             <th scope="col">Income</th>
@@ -69,27 +73,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="col">Salary</th>
-                            <td>0</td>
+                        <tr> <!--to add-->
+
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="col-6">
-                    <table class="table">
+                    <table class="table" id="tableExpenses">
                         <thead class="expenses">
-                        <tr>
+                        <tr> 
                             <th scope="col">Expenses</th>
                             <th></th>
-                            <th></th>
+                            <!--<th></th>-->
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="col">House</th>
-                            <td>0</td>
-                            <td>0</td>
+                        <tr> <!--to add-->
+                            
                         </tr>
                         </tbody>
                     </table>
