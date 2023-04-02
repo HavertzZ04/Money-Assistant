@@ -72,28 +72,53 @@ send.addEventListener('click', function() {
         row.appendChild(deleteBtn);
         tableExpenses.appendChild(row);
 
-        //This function calculate the % for each row about the variable "expenses" and create a button to eliminate rows if the user wanna do it
+        //Verify this function very well because this one is updating the % of each row
         function updatePercentage() {
 
-            //In this code we are calculating the % for each row
             let rows = document.querySelectorAll("#tableExpenses tbody tr");
+
+            let totalPercentage = 0;
+
             rows.forEach((row) => {
               let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
-              let percentage = (price * 100) / expenses;
-              let cell3 = row.querySelector("td:nth-child(3)");
-          
-              cell3.textContent = `${percentage.toFixed(1)}%`;
+              totalPercentage += (price * 100) / expenses;
             });
 
-            //In this code we are creating the button to eliminate rows
             let tableExpenses = document.querySelector("#tableExpenses tbody");
-            tableExpenses.addEventListener("click", function(e) {
-                if (e.target.classList.contains("delete-btn")) {
-                    e.target.closest("tr").remove();
-                }
-            }); 
-        }
+            tableExpenses.addEventListener("click", function(e){
+                if (e.target.classList.contains("delete-btn")){
+                    let row = e.target.closest("tr");
+                    let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
+                    expenses -= price;
+                    row.remove();
 
+                    rows = document.querySelectorAll("#tableExpenses tbody tr");
+                    if (rows.length > 0) {
+                        totalPercentage = 0;
+                        rows.forEach((row) => {
+                            let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
+                            totalPercentage += (price * 100) / expenses;
+                            let cell3 = row.querySelector("td:nth-child(3)");
+                            cell3.textContent = `${(price * 100) / expenses}%`;
+                        });
+                    }else {
+                        totalPercentage = 0;
+                    }
+                    document.querySelector("#expenses").innerHTML = `$${expenses}`;
+                    document.querySelector("#percentageMain").innerHTML = `%${totalPercentage.toFixed(1)}`;
+                }
+            });
+            rows.forEach((row) => {
+                let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
+                let percentage = (price * 100) / expenses;
+                let cell3 = row.querySelector("td:nth-child(3)");
+        
+                cell3.textContent = `${percentage.toFixed(1)}%`;
+            });
+
+            document.querySelector("#expenses").innerHTML = `$${expenses}`;
+            document.querySelector("#percentageMain").innerHTML = `%${totalPercentage.toFixed(1)}`;
+        }
         updatePercentage();
     }
 
