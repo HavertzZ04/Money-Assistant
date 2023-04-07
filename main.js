@@ -1,17 +1,17 @@
 let fullAmount = 0; //Big number
 let income = 0; //Money gotten
 let expenses = 0; //Money lost
-let percentageMain = 0; 
+let percentageMain = 0;  //% of expenses 
 
 let send = document.querySelector("#send");
 let select = document.querySelector("#selectValue");
-
 
 send.addEventListener('click', function() {
     let select = document.querySelector("#selectValue");
     let price = parseInt(document.querySelector("#price").value);
     let amount = 0;
     let percentage = 0;
+
     
 
     if(select.value === "plus"){
@@ -71,64 +71,105 @@ send.addEventListener('click', function() {
         row.appendChild(cell3);
         row.appendChild(deleteBtn);
         tableExpenses.appendChild(row);
-
-        //Verify this function very well because this one is updating the % of each row
+        
         function updatePercentage() {
-
             let rows = document.querySelectorAll("#tableExpenses tbody tr");
-
             let totalPercentage = 0;
-
-            rows.forEach((row) => {
-              let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
-              totalPercentage += (price * 100) / expenses;
-            });
-
-            let tableExpenses = document.querySelector("#tableExpenses tbody");
-            tableExpenses.addEventListener("click", function(e){
-                if (e.target.classList.contains("delete-btn")){
-                    let row = e.target.closest("tr");
-                    let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
-                    expenses -= price;
-                    row.remove();
-
-                    rows = document.querySelectorAll("#tableExpenses tbody tr");
-                    if (rows.length > 0) {
-                        totalPercentage = 0;
-                        rows.forEach((row) => {
-                            let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
-                            totalPercentage += (price * 100) / expenses;
-                            let cell3 = row.querySelector("td:nth-child(3)");
-                            cell3.textContent = `${(price * 100) / expenses}%`;
-                        });
-                    }else {
-                        totalPercentage = 0;
-                    }
-                    document.querySelector("#expenses").innerHTML = `$${expenses}`;
-                    document.querySelector("#percentageMain").innerHTML = `%${totalPercentage.toFixed(1)}`;
-                }
-            });
+            expenses = 0;
+            
             rows.forEach((row) => {
                 let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
-                let percentage = (price * 100) / expenses;
-                let cell3 = row.querySelector("td:nth-child(3)");
-        
-                cell3.textContent = `${percentage.toFixed(1)}%`;
+                expenses += price;
+                totalPercentage += (price * 100) / income;
             });
-
+          
+            if (expenses > 0) {
+                rows.forEach((row) => {
+                    let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
+                    let percentage = (price * 100) / expenses;
+                    let cell3 = row.querySelector("td:nth-child(3)");
+                    cell3.textContent = `${percentage.toFixed(1)}%`;
+                });
+                percentageMain = totalPercentage;
+            }else {
+                rows.forEach((row) => {
+                    let cell3 = row.querySelector("td:nth-child(3)");
+                    cell3.textContent = `0%`;
+                });
+                percentageMain = 0;
+            }
+          
+            fullAmount = income - expenses;
+            document.querySelector("#fullAmount").innerHTML = fullAmount;
             document.querySelector("#expenses").innerHTML = `$${expenses}`;
-            document.querySelector("#percentageMain").innerHTML = `%${totalPercentage.toFixed(1)}`;
-        }
+            document.querySelector("#percentageMain").innerHTML = `%${percentageMain.toFixed(1)}`;
+
+            tableExpenses.addEventListener('click', function(event) {
+                if (event.target.className === "delete-btn") {
+                  let row = event.target.parentElement;
+                  let price = parseFloat(row.querySelector("td:nth-child(2)").textContent.slice(2));
+                  expenses -= price;
+                  row.remove();
+                  updatePercentage();
+                }
+              }); 
+          }   
         updatePercentage();
     }
-
     //Here we are sending the updated variables values to the DOM
     document.querySelector("#fullAmount").innerHTML = amount;
     document.querySelector("#income").innerHTML = `$${income}`;
     document.querySelector("#expenses").innerHTML = `$${expenses}`;
     document.querySelector("#percentageMain").innerHTML = `%${percentage.toFixed(1)}`;
-
+    
 });
+
+
+
+//New code for the chart
+const incomeData = {
+    label: "Income",
+    data: income,
+    backgroundColor: 'rgb(0, 123, 255, 0.2)',
+    borderColor: 'rgb(0, 123, 255)',
+    borderWidth: 1
+}
+
+const expensesData = {
+    label: "Expenses",
+    data: expenses,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgba(255, 99, 132, 1)',
+    borderWidth: 1
+}
+
+let myChart = new Chart(document.getElementById('myChart'), {
+    type: 'bar',
+    data: {
+      labels: ["Income", "Expenses"],
+      datasets: [
+        incomeData,
+        expensesData,
+      ],
+    }
+  });
+
+  function updateChart() {
+    myChart.data.datasets[0].data = [income, expenses];
+    myChart.update();
+  }
+
+  send.addEventListener('click', function() {
+    updateChart();
+  });
+
+
+
+
+
+
+
+
 
 
 
