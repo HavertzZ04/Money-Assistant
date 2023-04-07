@@ -170,7 +170,7 @@ tbody{
 @media (max-width: 576px) {
 
     h1 {
-        font-size: 2rem;
+        font-size: 2rem; 
     }
 
     .amount {
