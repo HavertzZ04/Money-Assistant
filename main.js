@@ -62,7 +62,7 @@ send.addEventListener('click', function() {
         cell1.textContent = description;
         cell2.textContent = `$ ${price}`;
         cell3.textContent = `${(price * 100) / expenses}%`;
-        deleteBtn.classList.add("delete-btn");
+        deleteBtn.classList.add("delete-btn"); 
 
 
         //Add the new elements to the table
