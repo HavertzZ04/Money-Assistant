@@ -56,14 +56,14 @@ send.addEventListener('click', function() {
         let cell1 = document.createElement("td");
         let cell2 = document.createElement("td");
         let cell3 = document.createElement("td");
-        let deleteBtn = document.createElement("button");
+        let deleteBtn = document.createElement("td");
 
         //Add values to the new elements
         cell1.textContent = description;
         cell2.textContent = `$ ${price}`;
         cell3.textContent = `${(price * 100) / expenses}%`;
-        deleteBtn.textContent = "Delete";
-        deleteBtn.classList.add("delete-btn")
+        deleteBtn.classList.add("delete-btn");
+
 
         //Add the new elements to the table
         row.appendChild(cell1);
@@ -124,44 +124,56 @@ send.addEventListener('click', function() {
     
 });
 
-
-
 //New code for the chart
-const incomeData = {
-    label: "Income",
-    data: income,
-    backgroundColor: 'rgb(0, 123, 255, 0.2)',
-    borderColor: 'rgb(0, 123, 255)',
-    borderWidth: 1
+let incomeData = {
+  label: "Income",
+  data: income,
+  backgroundColor: 'rgba(0, 116, 255, 0.9)',
+  borderColor: 'rgb(0, 123, 255)',
+  strokeWidth: 1,
 }
 
-const expensesData = {
-    label: "Expenses",
-    data: expenses,
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgba(255, 99, 132, 1)',
-    borderWidth: 1
+let expensesData = {
+  label: "Expenses",
+  data: expenses,
+  backgroundColor: '#e8164a',
+  borderColor: 'rgba(255, 99, 132)',
+  strokeWidth: 1,
 }
 
 let myChart = new Chart(document.getElementById('myChart'), {
-    type: 'bar',
-    data: {
-      labels: ["Income", "Expenses"],
-      datasets: [
-        incomeData,
-        expensesData,
-      ],
-    }
-  });
-
-  function updateChart() {
-    myChart.data.datasets[0].data = [income, expenses];
-    myChart.update();
+  type: 'bar',
+  data: {
+    labels: ["Money"],
+    datasets: [incomeData, expensesData]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          fontColor: 'white'
+        }
+      }]
+    },
+    barThickness: 350,
   }
+});
 
-  send.addEventListener('click', function() {
-    updateChart();
-  });
+
+function updateChart() {
+  myChart.data.datasets[0].data = [income];
+  myChart.data.datasets[1].data = [expenses];
+  myChart.update();
+}
+
+send.addEventListener('click', function() {
+  updateChart();
+});
+
+
+
+
 
 
 

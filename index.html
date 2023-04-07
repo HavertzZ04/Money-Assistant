@@ -11,8 +11,8 @@
     <title>Money</title>
 </head>
 <body>
-    <section class="top position-relative">
-        <div class="position-absolute top-50 start-50 translate-middle">
+    <section class="top">
+        <div class="sub-top">
             <div class="groupTitle">
                 <h1 class="text-center">Available</h1>
                 <div class="amount text-center" id="fullAmount">0</div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-danger topExpenses info-top">
+                <div class= "topExpenses info-top">
                     <div class="row">
                         <div class="col-6">Expenses</div>
                         <div class="col-3" id="expenses">$ 0</div>
@@ -36,24 +36,23 @@
         </div>
     </section>
 
-    <section class="middle alert-secondary">
+    <section class="middle bg-gradient">
         <div class="container">
             <div class="row">
-                <div class="col-2">
-                    
+                <div class="col-2 col-xs-6">
                     <select class="text-center form-select width-input" aria-label="Default select example" id="selectValue">
                         <option value="plus" id="plus">+</option>
                         <option value="less" id="less">-</option>
                     </select>
                 </div>
-                <div class="col-5">
+                <div class="col-4 col-xs-6">
                     <input required type="text" placeholder="Add a description" name="description" class="width-input text-center" id="description">
                 </div>
-                <div class="col-3">
-                    <input required type="text" placeholder="$" name="price" class="width-input text-center" id="price">
+                <div class="col-4 col-xs-6">
+                    <input required type="text" placeholder="$ (Number)" name="price" class="width-input text-center" id="price">
                 </div>
-                <div class="col-2">
-                    <button type="submit" name="send" class="width-input btn-dark text-center" id="send">Send</button>
+                <div class="col-2 col-xs-6">
+                    <button type="submit" name="send" class="width-input btn text-center sendBtn" id="send">Save</button>
                 </div>
             </div>
         </div>
@@ -61,7 +60,7 @@
 
 
     <section class="down">
-        <div class="container">
+        <div class="container bgDown">
             <div class="row">
                 <div class="col-6">
                     <table class="table" id="tableIncome">
@@ -78,8 +77,9 @@
                 <div class="col-6">
                     <table class="table" id="tableExpenses">
                         <thead class="expenses">
-                        <tr class="text-danger"> 
+                        <tr class="text-danger">
                             <th scope="col">Expenses</th>
+                            <th></th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -92,8 +92,8 @@
         </div>  
     </section>
     
-    <div class="container divChart">
-        <canvas id="myChart"></canvas>
+    <div class="divChart ">
+        <canvas id="myChart" class="container"></canvas>
     </div>
 
 </body>

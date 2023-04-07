@@ -4,45 +4,50 @@
     padding: 0;
 }
 
-label {
-    display: block;
+body{
+    background: rgb(0,6,44);
 }
+
+
 
 
 /*top*/
 .top {
-    padding: 12% 0;
-    background-color: #F2FF23;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='836' height='836' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23101010' stroke-width='5.4'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23000000'%3E%3Ccircle cx='769' cy='229' r='12'/%3E%3Ccircle cx='539' cy='269' r='12'/%3E%3Ccircle cx='603' cy='493' r='12'/%3E%3Ccircle cx='731' cy='737' r='12'/%3E%3Ccircle cx='520' cy='660' r='12'/%3E%3Ccircle cx='309' cy='538' r='12'/%3E%3Ccircle cx='295' cy='764' r='12'/%3E%3Ccircle cx='40' cy='599' r='12'/%3E%3Ccircle cx='102' cy='382' r='12'/%3E%3Ccircle cx='127' cy='80' r='12'/%3E%3Ccircle cx='370' cy='105' r='12'/%3E%3Ccircle cx='578' cy='42' r='12'/%3E%3Ccircle cx='237' cy='261' r='12'/%3E%3Ccircle cx='390' cy='382' r='12'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url(images/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+.sub-top {
+    margin: 0 auto;
+    padding: 5rem 0;
 }
 
 .groupTitle {
-    background: rgba(255, 255, 255, 0.265);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur( 25px );
+    background: rgba(2, 7, 48, 0.393);
+    box-shadow: 0 8px 32px 0 rgba(1, 8, 25, 0.682);
+    backdrop-filter: blur( 5px );
     -webkit-backdrop-filter: blur( 5px );
     border-radius: 0.5rem;
-    border: 1px solid rgba(49, 47, 0, 0.18);
+    border: none;
 
-    padding: 2rem 3.5rem;
-    margin: 1rem 0;
+
+    width: 29rem;
+    padding: 2rem 3rem;
+    margin: 0 auto; 
 }
 
 h1 {
     font-size: 2.5rem;
-    color: #000000;
+    color: #ffffff;
 
     
 }
 
-
-
 .amount {
     font-size: 5rem;
-    color: #000000;
+    color: #ffffff;
     font-family: 'Doppio One', sans-serif;
-
-
+    margin: 0 0 0.9rem 0;
 }
 
 .info-top{
@@ -52,9 +57,13 @@ h1 {
 
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     border-radius: 0.3em;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.316);
 
     font-size: 1.2rem;
+}
+
+.topExpenses {
+    background-color: #e8164a;
 }
 
 
@@ -63,33 +72,60 @@ h1 {
 /*Middle*/
 
 .middle {
-    padding: 0 10rem;
+    padding: 0 auto;
+    background-color: #00062c;
+
 }
 
 .middle .container {
-    padding: 0 5rem;
+    padding: 0 auto;
 }
 
 .width-input {
     width: 100%;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 1.2rem 0;
+    padding: 0.8rem;
     border: none;
-    border-radius: 0.2rem;
-
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.2 );
     border-radius: 0.3rem;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-
     font-size: 1.2rem;
 }
+
+.sendBtn {
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 0px 1px rgb(255, 255, 255);
+}
+
+.sendBtn:hover {
+    background-color: #e8164a;
+    background-attachment: local;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    border: none;
+    box-shadow: none;
+
+}
+
+
 
 
 /*Down*/
 
 .down {
-    margin: 2rem 0 0 0;
-    
+    padding: 5rem 0;
+
+}
+
+.bgDown {
+    background: #020730cc;
+    box-shadow: 0 8px 32px 0 rgba(1, 8, 25, 0.682);
+    border-radius: 0.5rem;
+    border: none;
+
+}
+
+tbody{
+    color: white;
 }
 
 .income {
@@ -104,9 +140,85 @@ h1 {
 
 /*Chart*/
 
-#myChart{
-    margin: 2rem 0;
+.divChart {
+    background-image: url(images/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 5rem 0;
 }
+
+#myChart{
+    padding: 2rem;
+    background: rgba(2, 7, 48, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(1, 8, 25, 0.682);
+    border-radius: 0.5rem;
+    border: none;
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 5px );
+
+}
+
+.delete-btn{
+    color:rgb(255, 255, 255);
+    background-image: url(images/x.png);
+    background-size: cover;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+@media (max-width: 576px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .amount {
+        font-size: 4.5rem;
+    }
+
+    .groupTitle {
+        background: rgba(2, 7, 48, 0.393);
+        box-shadow: 0 8px 32px 0 rgba(1, 8, 25, 0.682);
+        backdrop-filter: blur( 5px );
+        -webkit-backdrop-filter: blur( 5px );
+        border-radius: 0.5rem;
+        border: none;
+    
+        width: auto;
+        padding: 2rem 3rem;
+        margin: 0 auto;
+    }
+
+    .sub-top {
+        margin: 0 auto;
+        padding: 3rem 0;
+    }
+
+
+    .info-top {
+        font-size: 1rem;
+    }
+
+    .width-input {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0.5rem;
+        border: none;
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.2 );
+        border-radius: 0.3rem;
+        font-size: 1rem;
+    }
+
+    
+
+    
+}
+
+  
+
+
+
 
 
 
