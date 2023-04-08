@@ -1,106 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Money</title>
-</head>
-<body>
-    <section class="top">
-        <div class="sub-top">
-            <div class="groupTitle">
-                <h1 class="text-center">Available</h1>
-                <div class="amount text-center" id="fullAmount">0</div>
-
-                <div class="bg-primary topIncome info-top">
-                    <div class="row">
-                        <div class="col-6">Income</div>
-                        <div class="col-6"  id="income">$ 0</div>
-                    </div>
-                </div>
-                
-                <div class= "topExpenses info-top">
-                    <div class="row">
-                        <div class="col-6">Expenses</div>
-                        <div class="col-3" id="expenses">$ 0</div>
-                        <div class="col-3" id="percentageMain">%0.0</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="middle ">
-        <div class="container">
-            <div class="row">
-                <div class="col-2 col-xs-6">
-                    <select class="text-center form-select width-input" aria-label="Default select example" id="selectValue">
-                        <option value="plus" id="plus">+</option>
-                        <option value="less" id="less">-</option>
-                    </select>
-                </div>
-                <div class="col-4 col-xs-6">
-                    <input required type="text" placeholder="Add a description" name="description" class="width-input text-center" id="description">
-                </div>
-                <div class="col-4 col-xs-6">
-                    <input required type="text" placeholder="$ (Number)" name="price" class="width-input text-center" id="price">
-                </div>
-                <div class="col-2 col-xs-6">
-                    <button type="submit" name="send" class="width-input btn text-center sendBtn" id="send">Save</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="down">
-        <div class="container bgDown">
-            <div class="row">
-                <div class="col-6">
-                    <table class="table" id="tableIncome">
-                        <thead class="income">
-                        <tr class="text-primary">
-                            <th scope="col">Income</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-6">
-                    <table class="table" id="tableExpenses">
-                        <thead class="expenses">
-                        <tr class="text-danger">
-                            <th scope="col">Expenses</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>  
-    </section>
-    
-    <div class="divChart">
-        <canvas id="myChart" class="container"></canvas>
-    </div>
-
-    <footer class="text-center">
-        <a href="https://github.com/HavertzZ04" class="text-white">
-            <span>by:</span> HavertzZ <img src="images/github.png" alt="" id="github">
-        </a>
-    </footer>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" type="module" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <title>Money Assistant</title>
+    </head>
+    <body>
+        <section class="top"></section>
+        <section class="middle"></section>
+        <section class="down"></section>
+        <div class="divChart"></div>
+        <footer class="text-center" id="footer"></footer>
+    </body>
 </html>
