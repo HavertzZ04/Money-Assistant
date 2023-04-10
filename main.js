@@ -5,7 +5,6 @@ import myDown from "./components/myDown.js";
 import myFooter from "./components/myFooter.js";
 import myChart from "./components/myChart.js";
 import { mathFunction } from "./components/myMath.js";
-import { chartBar } from "./components/myChartLogic.js";
 
 
 myTop.show();
@@ -16,7 +15,6 @@ myFooter.show();
 
 
 mathFunction();
-chartBar();
 
 
 
