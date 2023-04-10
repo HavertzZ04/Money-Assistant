@@ -123,8 +123,10 @@ export function mathFunction(){
         document.querySelector("#income").innerHTML = `$${income}`;
         document.querySelector("#expenses").innerHTML = `$${expenses}`;
         document.querySelector("#percentageMain").innerHTML = `%${percentage.toFixed(1)}`;
+        
+    });
 
-        let incomeData = {
+            let incomeData = {
             label: "Income",
             data: income,
             backgroundColor: 'rgba(0, 116, 255, 0.9)',
@@ -161,13 +163,6 @@ export function mathFunction(){
         send.addEventListener('click', function() {
             updateChart();
         });
-        
-    });
 
 
 }
-
-
-
-
-
