@@ -6,8 +6,8 @@ export default {
         document.querySelector(".down").insertAdjacentHTML("beforeend",
         `
         <div class="container bgDown">
-            <div class="row">
-                <div class="col-6">
+            <div class="row ">
+                <div class="col-6 table-wrapper">
                     <table class="table" id="tableIncome">
                         <thead class="income">
                         <tr class="text-primary">
@@ -19,7 +19,7 @@ export default {
                         </tbody>
                     </table>
                 </div>
-                <div class="col-6">
+                <div class="col-6 table-wrapper">
                     <table class="table" id="tableExpenses">
                         <thead class="expenses">
                         <tr class="text-danger">
