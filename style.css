@@ -125,8 +125,7 @@ h1 {
 }
 
 .bgDown {
-    background: #020730cc;
-    box-shadow: 0 8px 32px 0 rgba(1, 8, 25, 0.682);
+    box-shadow: 0 8px 32px 0 rgba(0, 234, 255, 0.051);
     border-radius: 0.5rem;
     border: none;
 }
@@ -147,7 +146,8 @@ tbody{
 
 /*Table scroll*/
 .table-wrapper {
-    height: 21.1rem; 
+    margin: 1rem auto;
+    max-height: 22rem; 
     overflow: auto;
 }
   
