@@ -1,6 +1,6 @@
 export default {
-    plus: "+",
-    less: "-",
+    plus: "Income",
+    less: "Expense",
     descriptionPlaceHolder: "Add a description",
     numberPlaceHolder: "$ (Number)",
     save: "Save",
@@ -13,6 +13,7 @@ export default {
             <div class="row">
                 <div class="col-2 col-xs-6">
                     <select class="text-center form-select width-input" aria-label="Default select example" id="selectValue">
+                        <option id="optionNone">Option</option>
                         <option value="plus" id="plus">${this.plus}</option>
                         <option value="less" id="less">${this.less}</option>
                     </select>
